@@ -169,6 +169,7 @@ function PlasmicPrint__RenderFunc(props: {
                   data-plasmic-name={"amountInput"}
                   data-plasmic-override={overrides.amountInput}
                   className={classNames("__wab_instance", sty.amountInput)}
+                  name={"amountInput" as const}
                 />
 
                 <Button
