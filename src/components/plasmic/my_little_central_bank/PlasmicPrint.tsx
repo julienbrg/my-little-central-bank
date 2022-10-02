@@ -145,7 +145,7 @@ function PlasmicPrint__RenderFunc(props: {
                   )}
                 >
                   {
-                    "Instead of spending millions, hiring thousands of unuseful consultant, waste years of work, we invite any central bank to use a standard ERC-20 on top of any Ethereum L2. "
+                    "Instead of spending millions, hiring thousands of unuseful consultants, waste years of work, we invite any central bank to use a standard ERC-20 on top of any Ethereum L2. "
                   }
                 </div>
 
