@@ -1,25 +1,27 @@
-This is a React project bootstrapped with [`create-plasmic-app`](https://www.npmjs.com/package/create-plasmic-app).
+# My little central bank
 
-## Getting Started
+[https://mylittlecentralbank.com/](https://mylittlecentralbank.com/)
 
-First, run the development server:
+## Install
 
-```bash
-npm run start
+```shell
+npm i
 ```
 
-Open your browser to see the result.
+Replace the `.env.example` with your own `.env` file.
 
-You can start editing your project in Plasmic Studio. The page auto-updates as you edit the project.
+## Test
 
-## Learn More
+```shell
+npm start
+```
 
-With Plasmic, you can enable non-developers on your team to publish pages and content into your website or app.
+## Resources
 
-To learn more about Plasmic, take a look at the following resources:
+- [Web3Auth docs](https://web3auth.io/docs/)
+- [Ethers.js docs](https://docs.ethers.io/v5/)
+- [Plasmic docs](https://docs.plasmic.app/)
 
-- [Plasmic Website](https://www.plasmic.app/)
-- [Plasmic Documentation](https://docs.plasmic.app/learn/)
-- [Plasmic Slack Community](https://www.plasmic.app/slack)
+## Support
 
-You can check out [the Plasmic GitHub repository](https://github.com/plasmicapp/plasmic) - your feedback and contributions are welcome!
+You can contact us via [Element](https://matrix.to/#/@julienbrg:matrix.org) (preferred), [Twitter](https://twitter.com/julienbrg), [Discord](https://discord.gg/xw9dCeQ94Y), [LinkedIn](https://www.linkedin.com/in/julienberanger/) or [email](mailto:julien@ato.network).
