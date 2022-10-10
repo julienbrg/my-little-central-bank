@@ -2,6 +2,8 @@
 
 [https://mylittlecentralbank.com/](https://mylittlecentralbank.com/)
 
+Issue as euros just like a central bank would do.
+
 ## Install
 
 ```shell
@@ -24,4 +26,4 @@ npm start
 
 ## Support
 
-You can contact us via [Element](https://matrix.to/#/@julienbrg:matrix.org) (preferred), [Twitter](https://twitter.com/julienbrg), [Discord](https://discord.gg/xw9dCeQ94Y), [LinkedIn](https://www.linkedin.com/in/julienberanger/) or [email](mailto:julien@ato.network).
+You can contact me via [Element](https://matrix.to/#/@julienbrg:matrix.org), [Telegram](https://t.me/julienbrg), [Twitter](https://twitter.com/julienbrg), [Discord](https://discord.gg/pfkJpEb4xn), or [LinkedIn](https://www.linkedin.com/in/julienberanger/).

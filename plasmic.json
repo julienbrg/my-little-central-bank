@@ -169,6 +169,11 @@
           "id": "T-2xEkq9c7k549",
           "name": "favicon.png",
           "filePath": "plasmic/my_little_central_bank/images/faviconpng.png"
+        },
+        {
+          "id": "aso1_oipk",
+          "name": "image",
+          "filePath": "plasmic/my_little_central_bank/images/image.png"
         }
       ],
       "indirect": false,
