@@ -37,6 +37,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_my_little_central_bank.module.css"; // plasmic-import: b5LwbYjEqZs5FaGQRFULLt/projectcss
 import sty from "./PlasmicFooter.module.css"; // plasmic-import: m93QERKfePj84/css
 
+import imageAso1Oipk from "./images/image.png"; // plasmic-import: aso1_oipk/picture
+
 export type PlasmicFooter__VariantMembers = {};
 
 export type PlasmicFooter__VariantsArgs = {};
@@ -52,6 +54,8 @@ export type PlasmicFooter__OverridesType = {
   text?: p.Flex<"div">;
   supplyBox?: p.Flex<"a">;
   span?: p.Flex<"span">;
+  link?: p.Flex<"a">;
+  img?: p.Flex<typeof p.PlasmicImg>;
   userAddressBox?: p.Flex<"a">;
 };
 
@@ -102,52 +106,96 @@ function PlasmicFooter__RenderFunc(props: {
       <div className={classNames(projectcss.all, sty.freeBox__sCzZu)}>
         {true ? (
           <div className={classNames(projectcss.all, sty.freeBox__sksCo)}>
-            <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text
-              )}
-            >
-              <React.Fragment>
-                <React.Fragment>{"Current total supply: "}</React.Fragment>
-                {
-                  <a
-                    data-plasmic-name={"supplyBox"}
-                    data-plasmic-override={overrides.supplyBox}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.supplyBox
-                    )}
-                    href={" " as const}
+            {true ? (
+              <div className={classNames(projectcss.all, sty.freeBox__dedr2)}>
+                <div
+                  data-plasmic-name={"text"}
+                  data-plasmic-override={overrides.text}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text
+                  )}
+                >
+                  <React.Fragment>
+                    <React.Fragment>{"Current total supply: "}</React.Fragment>
+                    {
+                      <a
+                        data-plasmic-name={"supplyBox"}
+                        data-plasmic-override={overrides.supplyBox}
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.a,
+                          projectcss.__wab_text,
+                          projectcss.plasmic_default__inline,
+                          sty.supplyBox
+                        )}
+                        href={" " as const}
+                      >
+                        {"x"}
+                      </a>
+                    }
+                    <React.Fragment> </React.Fragment>
+                    {
+                      <span
+                        data-plasmic-name={"span"}
+                        data-plasmic-override={overrides.span}
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.span,
+                          projectcss.__wab_text,
+                          projectcss.plasmic_default__inline,
+                          sty.span
+                        )}
+                      >
+                        {"EUR"}
+                      </span>
+                    }
+                    <React.Fragment>{"  "}</React.Fragment>
+                  </React.Fragment>
+                </div>
+
+                {true ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__urzDv)}
                   >
-                    {"x"}
-                  </a>
-                }
-                <React.Fragment> </React.Fragment>
-                {
-                  <span
-                    data-plasmic-name={"span"}
-                    data-plasmic-override={overrides.span}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.span,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.span
-                    )}
-                  >
-                    {"EUR"}
-                  </span>
-                }
-                <React.Fragment>{"  "}</React.Fragment>
-              </React.Fragment>
-            </div>
+                    <a
+                      data-plasmic-name={"link"}
+                      data-plasmic-override={overrides.link}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link
+                      )}
+                      href={
+                        "https://github.com/julienbrg/my-little-central-bank" as const
+                      }
+                      target={"_blank" as const}
+                    >
+                      <p.PlasmicImg
+                        data-plasmic-name={"img"}
+                        data-plasmic-override={overrides.img}
+                        alt={""}
+                        className={classNames(sty.img)}
+                        displayHeight={"auto" as const}
+                        displayMaxHeight={"none" as const}
+                        displayMaxWidth={"100%" as const}
+                        displayMinHeight={"0" as const}
+                        displayMinWidth={"0" as const}
+                        displayWidth={"31px" as const}
+                        loading={"lazy" as const}
+                        src={{
+                          src: imageAso1Oipk,
+                          fullWidth: 275,
+                          fullHeight: 183,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </a>
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
           </div>
         ) : null}
 
@@ -170,10 +218,12 @@ function PlasmicFooter__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text", "supplyBox", "span", "userAddressBox"],
+  root: ["root", "text", "supplyBox", "span", "link", "img", "userAddressBox"],
   text: ["text", "supplyBox", "span"],
   supplyBox: ["supplyBox"],
   span: ["span"],
+  link: ["link", "img"],
+  img: ["img"],
   userAddressBox: ["userAddressBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -184,6 +234,8 @@ type NodeDefaultElementType = {
   text: "div";
   supplyBox: "a";
   span: "span";
+  link: "a";
+  img: typeof p.PlasmicImg;
   userAddressBox: "a";
 };
 
@@ -251,6 +303,8 @@ export const PlasmicFooter = Object.assign(
     text: makeNodeComponent("text"),
     supplyBox: makeNodeComponent("supplyBox"),
     span: makeNodeComponent("span"),
+    link: makeNodeComponent("link"),
+    img: makeNodeComponent("img"),
     userAddressBox: makeNodeComponent("userAddressBox"),
 
     // Metadata about props expected for PlasmicFooter
