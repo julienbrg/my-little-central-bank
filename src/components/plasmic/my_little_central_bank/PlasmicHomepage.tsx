@@ -59,7 +59,6 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   header?: p.Flex<typeof Header>;
-  freeBox?: p.Flex<"div">;
   section?: p.Flex<"section">;
   h1?: p.Flex<"h1">;
   button?: p.Flex<typeof Button>;
@@ -125,11 +124,7 @@ function PlasmicHomepage__RenderFunc(props: {
           />
 
           {true ? (
-            <div
-              data-plasmic-name={"freeBox"}
-              data-plasmic-override={overrides.freeBox}
-              className={classNames(projectcss.all, sty.freeBox)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__fQpcN)}>
               <p.Stack
                 as={"section"}
                 data-plasmic-name={"section"}
@@ -180,22 +175,34 @@ function PlasmicHomepage__RenderFunc(props: {
                 </Reveal>
               </p.Stack>
 
-              <Button
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
-                link={`/print`}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__g8Ubd
-                  )}
-                >
-                  {"Fuck around"}
+              {true ? (
+                <div className={classNames(projectcss.all, sty.freeBox__aybBu)}>
+                  <Reveal
+                    className={classNames("__wab_instance", sty.reveal__bM9Bv)}
+                    delay={5000 as const}
+                    duration={300 as const}
+                    effect={"rotate" as const}
+                    triggerOnce={true}
+                  >
+                    <Button
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
+                      link={`/print`}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__g8Ubd
+                        )}
+                      >
+                        {"Launch the app"}
+                      </div>
+                    </Button>
+                  </Reveal>
                 </div>
-              </Button>
+              ) : null}
             </div>
           ) : null}
 
@@ -211,9 +218,8 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "header", "freeBox", "section", "h1", "button", "footer"],
+  root: ["root", "header", "section", "h1", "button", "footer"],
   header: ["header"],
-  freeBox: ["freeBox", "section", "h1", "button"],
   section: ["section", "h1"],
   h1: ["h1"],
   button: ["button"],
@@ -225,7 +231,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   header: typeof Header;
-  freeBox: "div";
   section: "section";
   h1: "h1";
   button: typeof Button;
@@ -294,7 +299,6 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
-    freeBox: makeNodeComponent("freeBox"),
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
     button: makeNodeComponent("button"),

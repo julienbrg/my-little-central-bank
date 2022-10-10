@@ -3,43 +3,29 @@
   flex-direction: row;
   position: relative;
   height: auto;
-  justify-content: center;
-  align-items: stretch;
+  justify-content: flex-start;
+  align-items: center;
   flex-wrap: nowrap;
   align-content: stretch;
   width: 100%;
   background: var(--token-p8DIucI8kBQfL9);
+  max-width: 810px;
+  margin-right: 0px;
   min-width: 0;
   padding: 100px 8px 8px;
 }
-.freeBox__sKo4C {
-  flex-direction: row;
+.freeBox__sCzZu {
   display: flex;
   position: relative;
-  height: auto;
-  width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox__sKo4C > :global(.__wab_flex-container) {
   flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  align-self: auto;
   min-width: 0;
-  margin-left: calc(0px - 0px);
-  width: calc(100% + 0px);
+  padding: 0px 8px 8px;
 }
-.freeBox__sKo4C > :global(.__wab_flex-container) > *,
-.freeBox__sKo4C > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__sKo4C > :global(.__wab_flex-container) > picture > img,
-.freeBox__sKo4C
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 0px;
-}
-.freeBox__a4ZVu {
+.freeBox__sksCo {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -50,37 +36,25 @@
   max-width: 100%;
   min-width: 0;
 }
-.text__tMZar {
+.text {
+  position: relative;
+  width: 100%;
   height: auto;
   max-width: 800px;
   color: var(--token-DwzncEd0zrthaU);
-  display: none;
-}
-.freeBox__eRzC {
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  align-self: auto;
-  min-width: 0;
-  padding: 8px;
-}
-.freeBox__rtCdv {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
   min-width: 0;
 }
-.text__zWyEz {
+.supplyBox {
+  color: var(--token-W9jV5uZrdle7E-);
+  font-weight: 700;
+}
+.span {
+  color: var(--token-W9jV5uZrdle7E-);
+  font-weight: 700;
+}
+.userAddressBox {
   height: auto;
   max-width: 800px;
-  color: var(--token-DwzncEd0zrthaU);
-  display: none;
+  color: var(--token-W9jV5uZrdle7E-);
+  font-weight: 400;
 }

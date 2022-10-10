@@ -64,7 +64,9 @@ export type PlasmicPrint__OverridesType = {
   text?: p.Flex<"div">;
   textBox?: p.Flex<"div">;
   amountInput?: p.Flex<typeof TextInput>;
+  msgBox?: p.Flex<"div">;
   print?: p.Flex<typeof Button>;
+  action?: p.Flex<typeof Button>;
   footer?: p.Flex<typeof Footer>;
 };
 
@@ -144,9 +146,59 @@ function PlasmicPrint__RenderFunc(props: {
                     sty.text
                   )}
                 >
-                  {
-                    "Instead of spending millions, hiring thousands of unuseful consultants, waste years of work, we invite any central bank to use a standard ERC-20 on top of any Ethereum L2. "
-                  }
+                  <React.Fragment>
+                    <React.Fragment>
+                      {
+                        "Instead of spending millions, hiring thousands of unuseful consultants, waste years of work, we invite any 'central bank' of this planet to use a standard ERC-20 on top of any L2. This is "
+                      }
+                    </React.Fragment>
+                    <span
+                      className={"plasmic_default__all plasmic_default__span"}
+                      style={{
+                        fontWeight: 700,
+                        textDecorationLine: "underline"
+                      }}
+                    >
+                      {"for educational purposes only"}
+                    </span>
+                    <React.Fragment>
+                      {
+                        ": what you're issuing is a currency that circulates on a test network called "
+                      }
+                    </React.Fragment>
+                    {
+                      <a
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.a,
+                          projectcss.__wab_text,
+                          projectcss.plasmic_default__inline,
+                          sty.link__iJtGp
+                        )}
+                        href={"https://goerli.net/" as const}
+                      >
+                        {"Goerli"}
+                      </a>
+                    }
+                    <React.Fragment>
+                      {". It is as secured as our good old euro. "}
+                    </React.Fragment>
+                    {
+                      <a
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.a,
+                          projectcss.__wab_text,
+                          projectcss.plasmic_default__inline,
+                          sty.link__lYuYz
+                        )}
+                        href={`/about`}
+                      >
+                        {"Learn more about the CBDC thing"}
+                      </a>
+                    }
+                    <React.Fragment>{"."}</React.Fragment>
+                  </React.Fragment>
                 </div>
 
                 <div
@@ -172,13 +224,44 @@ function PlasmicPrint__RenderFunc(props: {
                   name={"amountInput" as const}
                 />
 
-                <Button
-                  data-plasmic-name={"print"}
-                  data-plasmic-override={overrides.print}
-                  className={classNames("__wab_instance", sty.print)}
-                >
-                  {"Print"}
-                </Button>
+                {true ? (
+                  <p.Stack
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__vmXfX)}
+                  >
+                    <div
+                      data-plasmic-name={"msgBox"}
+                      data-plasmic-override={overrides.msgBox}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.msgBox
+                      )}
+                    >
+                      {"Message in a bottle, yo."}
+                    </div>
+
+                    <Button
+                      data-plasmic-name={"print"}
+                      data-plasmic-override={overrides.print}
+                      className={classNames("__wab_instance", sty.print)}
+                    >
+                      {"Print"}
+                    </Button>
+
+                    {true ? (
+                      <Button
+                        data-plasmic-name={"action"}
+                        data-plasmic-override={overrides.action}
+                        className={classNames("__wab_instance", sty.action)}
+                        color={"blue" as const}
+                      >
+                        {"Do something"}
+                      </Button>
+                    ) : null}
+                  </p.Stack>
+                ) : null}
               </p.Stack>
             </div>
           ) : null}
@@ -202,15 +285,27 @@ const PlasmicDescendants = {
     "text",
     "textBox",
     "amountInput",
+    "msgBox",
     "print",
+    "action",
     "footer"
   ],
   header: ["header"],
-  section: ["section", "text", "textBox", "amountInput", "print"],
+  section: [
+    "section",
+    "text",
+    "textBox",
+    "amountInput",
+    "msgBox",
+    "print",
+    "action"
+  ],
   text: ["text"],
   textBox: ["textBox"],
   amountInput: ["amountInput"],
+  msgBox: ["msgBox"],
   print: ["print"],
+  action: ["action"],
   footer: ["footer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -223,7 +318,9 @@ type NodeDefaultElementType = {
   text: "div";
   textBox: "div";
   amountInput: typeof TextInput;
+  msgBox: "div";
   print: typeof Button;
+  action: typeof Button;
   footer: typeof Footer;
 };
 
@@ -293,7 +390,9 @@ export const PlasmicPrint = Object.assign(
     text: makeNodeComponent("text"),
     textBox: makeNodeComponent("textBox"),
     amountInput: makeNodeComponent("amountInput"),
+    msgBox: makeNodeComponent("msgBox"),
     print: makeNodeComponent("print"),
+    action: makeNodeComponent("action"),
     footer: makeNodeComponent("footer"),
 
     // Metadata about props expected for PlasmicPrint

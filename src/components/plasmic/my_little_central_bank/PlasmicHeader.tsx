@@ -53,6 +53,7 @@ export const PlasmicHeader__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHeader__OverridesType = {
   root?: p.Flex<"div">;
+  userAddressBox?: p.Flex<"a">;
   login?: p.Flex<typeof Button>;
   text?: p.Flex<"div">;
 };
@@ -101,11 +102,7 @@ function PlasmicHeader__RenderFunc(props: {
         sty.root
       )}
     >
-      <p.Stack
-        as={"div"}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox__kTk1N)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__kTk1N)}>
         {true ? (
           <div className={classNames(projectcss.all, sty.freeBox__x95Yh)}>
             <a
@@ -121,7 +118,24 @@ function PlasmicHeader__RenderFunc(props: {
             </a>
           </div>
         ) : null}
-      </p.Stack>
+        {true ? (
+          <div className={classNames(projectcss.all, sty.freeBox__eHNs)}>
+            <a
+              data-plasmic-name={"userAddressBox"}
+              data-plasmic-override={overrides.userAddressBox}
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                projectcss.__wab_text,
+                sty.userAddressBox
+              )}
+              href={`/`}
+            >
+              {"0x..."}
+            </a>
+          </div>
+        ) : null}
+      </div>
 
       <p.Stack
         as={"div"}
@@ -182,7 +196,8 @@ function PlasmicHeader__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "login", "text"],
+  root: ["root", "userAddressBox", "login", "text"],
+  userAddressBox: ["userAddressBox"],
   login: ["login", "text"],
   text: ["text"]
 } as const;
@@ -191,6 +206,7 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  userAddressBox: "a";
   login: typeof Button;
   text: "div";
 };
@@ -256,6 +272,7 @@ export const PlasmicHeader = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    userAddressBox: makeNodeComponent("userAddressBox"),
     login: makeNodeComponent("login"),
     text: makeNodeComponent("text"),
 

@@ -93,7 +93,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text {
-    text-align: left;
+    text-align: center;
   }
 }
 .footer:global(.__wab_instance) {

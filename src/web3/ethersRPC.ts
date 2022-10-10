@@ -1,6 +1,7 @@
 import type { SafeEventEmitterProvider } from "@web3auth/base";
 import { ethers } from "ethers";
-import nft from '../web3/Thistle.json';
+// import nft from '../web3/Thistle.json';
+import { abi } from "./euroABI"
 
 export default class EthereumRpc {
   private provider: SafeEventEmitterProvider;
@@ -48,6 +49,30 @@ export default class EthereumRpc {
       );
 
       return balance;
+    } catch (error) {
+      return error as string;
+    }
+  }
+
+  async getEuroBalance(): Promise<string> {
+    try {
+      const ethersProvider = new ethers.providers.Web3Provider(this.provider);
+      const signer = ethersProvider.getSigner();
+
+      // Get user's Ethereum public address
+      const address = await signer.getAddress();
+
+      // Get user's balance in ether
+      // const balance = ethers.utils.formatEther(
+      //   await ethersProvider.getBalance(address) // Balance is in wei
+      // );
+
+      const contract = new ethers.Contract("0x9d97e33C38396aea20E1ee8B9A2362632048C9a8", abi, signer)
+      const myEuroBalance = await contract.balanceOf(address)
+      // console.log("myEuroBalance:", myEuroBalance)
+
+      return ethers.utils.formatEther(myEuroBalance);
+    
     } catch (error) {
       return error as string;
     }
@@ -128,25 +153,50 @@ export default class EthereumRpc {
     }
   }
 
-  async mint(name:any, symbol:any, uri:any): Promise<any> {
+  async mint(amount:number): Promise<any> {
 
     try {
 
       // console.log("step 1")
       const ethersProvider = new ethers.providers.Web3Provider(this.provider);
       const signer = ethersProvider.getSigner();
-      const factory = new ethers.ContractFactory(nft.abi, nft.bytecode, signer);
-      const tx = await factory.deploy(name, symbol, uri);
-      // console.log("step 2")
+      const address = await signer.getAddress();
 
-      await ethersProvider.waitForTransaction(tx.deployTransaction.hash);
+      const contract = new ethers.Contract("0x9d97e33C38396aea20E1ee8B9A2362632048C9a8", abi, signer)
+
+      const amountToMint = ethers.utils.parseEther(String(amount))
+
+      const tx = await contract.mint(address, amountToMint);
 
       // console.log("provider.waitForTransaction :" + contract.address);
-      // console.log("step 3")
+      // console.log("step 2")
 
-      console.log("mint tx:", tx)
+      await tx.wait(1)
 
-      return tx.deployTransaction.hash;
+
+      return tx;
+
+    } catch (error:any) {
+      console.log("An error occured during the minting process.")
+      console.error(`${error.message} ${error.error}`);
+      return null;
+    }
+  }
+
+  async getEuroTotalSupply(): Promise<any> {
+
+    try {
+
+      // console.log("step 1")
+      const ethersProvider = new ethers.providers.Web3Provider(this.provider);
+      const signer = ethersProvider.getSigner();
+
+      const contract = new ethers.Contract("0x9d97e33C38396aea20E1ee8B9A2362632048C9a8", abi, signer)
+
+      const supply = await contract.totalSupply();
+      console.log("supply:", supply )
+
+      return ethers.utils.formatEther(supply);;
 
     } catch (error:any) {
       console.log("An error occured during the minting process.")

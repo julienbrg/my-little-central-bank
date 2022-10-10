@@ -116,7 +116,7 @@ function PlasmicTextInput__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          placeholder: "10000" as const
+          placeholder: "How many euros you want to issue today?" as const
         },
         props.args
       ),

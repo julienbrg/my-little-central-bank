@@ -49,6 +49,10 @@ export const PlasmicFooter__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicFooter__OverridesType = {
   root?: p.Flex<"div">;
+  text?: p.Flex<"div">;
+  supplyBox?: p.Flex<"a">;
+  span?: p.Flex<"span">;
+  userAddressBox?: p.Flex<"a">;
 };
 
 export interface DefaultFooterProps {
@@ -95,57 +99,92 @@ function PlasmicFooter__RenderFunc(props: {
         sty.root
       )}
     >
-      <p.Stack
-        as={"div"}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox__sKo4C)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__sCzZu)}>
         {true ? (
-          <div className={classNames(projectcss.all, sty.freeBox__a4ZVu)}>
-            {true ? (
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__tMZar
-                )}
-              >
-                {"Project Name"}
-              </div>
-            ) : null}
+          <div className={classNames(projectcss.all, sty.freeBox__sksCo)}>
+            <div
+              data-plasmic-name={"text"}
+              data-plasmic-override={overrides.text}
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text
+              )}
+            >
+              <React.Fragment>
+                <React.Fragment>{"Current total supply: "}</React.Fragment>
+                {
+                  <a
+                    data-plasmic-name={"supplyBox"}
+                    data-plasmic-override={overrides.supplyBox}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.supplyBox
+                    )}
+                    href={" " as const}
+                  >
+                    {"x"}
+                  </a>
+                }
+                <React.Fragment> </React.Fragment>
+                {
+                  <span
+                    data-plasmic-name={"span"}
+                    data-plasmic-override={overrides.span}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.span,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.span
+                    )}
+                  >
+                    {"EUR"}
+                  </span>
+                }
+                <React.Fragment>{"  "}</React.Fragment>
+              </React.Fragment>
+            </div>
           </div>
         ) : null}
-      </p.Stack>
 
-      <div className={classNames(projectcss.all, sty.freeBox__eRzC)}>
-        {true ? (
-          <div className={classNames(projectcss.all, sty.freeBox__rtCdv)}>
-            {true ? (
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__zWyEz
-                )}
-              >
-                {"strat.eth"}
-              </div>
-            ) : null}
-          </div>
-        ) : null}
+        <a
+          data-plasmic-name={"userAddressBox"}
+          data-plasmic-override={overrides.userAddressBox}
+          className={classNames(
+            projectcss.all,
+            projectcss.a,
+            projectcss.__wab_text,
+            sty.userAddressBox
+          )}
+          href={`/`}
+        >
+          {""}
+        </a>
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "text", "supplyBox", "span", "userAddressBox"],
+  text: ["text", "supplyBox", "span"],
+  supplyBox: ["supplyBox"],
+  span: ["span"],
+  userAddressBox: ["userAddressBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  text: "div";
+  supplyBox: "a";
+  span: "span";
+  userAddressBox: "a";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -209,6 +248,10 @@ export const PlasmicFooter = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    text: makeNodeComponent("text"),
+    supplyBox: makeNodeComponent("supplyBox"),
+    span: makeNodeComponent("span"),
+    userAddressBox: makeNodeComponent("userAddressBox"),
 
     // Metadata about props expected for PlasmicFooter
     internalVariantProps: PlasmicFooter__VariantProps,
