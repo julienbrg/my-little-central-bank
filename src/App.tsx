@@ -14,7 +14,7 @@ function Index() {
   const [web3auth, setWeb3auth] = useState<Web3Auth | null>(null);
   const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(null);
   const [userAddress, setUserAddress] = useState<string>("")
-  const [bal, setBal] = useState<number>(0);
+  const [bal, setBal] = useState<string>("");
   const [totalSupply, setTotalSupply] = useState<number>(0);
 
   const [userShortenAddr, setShortenAddr] = useState<string>("")

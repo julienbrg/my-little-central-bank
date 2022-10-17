@@ -11,8 +11,8 @@ export type GlobalContent = {
     setProvider:(c: SafeEventEmitterProvider | null) => void
     userAddress: string
     setUserAddress:(c: string) => void
-    bal: number
-    setBal:(c: number) => void
+    bal: string
+    setBal:(c: string) => void
     userShortenAddr: string
     setShortenAddr:(c: string) => void
     totalSupply: number
@@ -36,7 +36,7 @@ export const Web3Context = createContext<GlobalContent>({
     setProvider: () => {},
     userAddress: "",
     setUserAddress: () => {},
-    bal: 0,
+    bal: "",
     setBal: () => {},
     totalSupply: 0,
     setTotalSupply: () => {},

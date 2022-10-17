@@ -27,7 +27,7 @@ function Header_(props: HeaderProps, ref: HTMLElementRefOf<"div">) {
     web3auth, setWeb3auth,
     provider, setProvider,
     setUserAddress,
-    // setBal,
+    setBal,
     userShortenAddr, setShortenAddr,
     etherscanLink, setEtherscanLink
     // etherscanLink, setEtherscanLink,
@@ -74,6 +74,7 @@ function Header_(props: HeaderProps, ref: HTMLElementRefOf<"div">) {
 
   useEffect(() => {
     getAccounts()
+    getBalance()
   }, [provider]);
 
   const toggle = async () => {
@@ -92,6 +93,7 @@ function Header_(props: HeaderProps, ref: HTMLElementRefOf<"div">) {
     setProvider(web3authProvider);
   
     await getAccounts();
+    await getBalance();
   };
   
   const logout = async () => {
@@ -138,16 +140,16 @@ function Header_(props: HeaderProps, ref: HTMLElementRefOf<"div">) {
   
   };
   
-  // const getBalance = async () => {
-  //   if (!provider) {
-  //     return;
-  //   }
-  //   // const rpc = new RPC(provider);
-  //   // const balanceRaw = await rpc.getBalance();
-  //   // const balanceFormatted = Number(balanceRaw).toFixed(5);
-  //   // const balance = String(balanceFormatted) + " ETH"
-  //   // setBal(balance);
-  // };
+  const getBalance = async () => {
+    if (!provider) {
+      return;
+    }
+    const rpc = new RPC(provider);
+    const balanceRaw = await rpc.getBalance();
+    const balanceFormatted = Number(balanceRaw).toFixed(5);
+    const balance = String(balanceFormatted) + " ETH"
+    setBal(balance);
+  };
   
   // const getUserInfo = async () => {
   //   if (!web3auth) {

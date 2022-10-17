@@ -17,13 +17,14 @@ function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
 
   const { 
     provider,
-    setTotalSupply
+    setTotalSupply,
+    bal, setBal
   } = useGlobalContext()
 
   const [amount, setAmount] = useState<any>(0)
   const [euroBalance, setEuroBalance] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(false)
-  const [status, setStatus] = useState<string>("")
+  const [msg, setMsg] = useState<string>("")
 
   useEffect(() => {
     getEuroBalance();
@@ -34,12 +35,33 @@ function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
 
     console.log("minting...")
 
+    // if ()
+
     setLoading(true)
 
     if (!provider) {
       console.log("provider not initialized yet");
+      setMsg("Please login first.")
+      setLoading(false)
+      return;
+
+    }
+
+    // console.log("bal:", bal)
+    if (bal === "0.00000 ETH") {
+      setMsg("Please get yourself a handful of Goerli ETH at https://goerlifaucet.com")
+      setLoading(false)
       return;
     }
+
+    if (amount === 0) {
+      setMsg("Please type in an amount.")
+      setLoading(false)
+      return;
+    }
+
+    setMsg("")
+
     const rpc = new RPC(provider);
 
     const receipt = await rpc.mint(amount);
@@ -91,13 +113,13 @@ function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
     print={{
       props: {
         children: (loading ? <img style = {{maxHeight:26}} alt = "loader" src={loader} /> : "Print"),
-        onClick: (!provider ? () => setStatus("Please login first.") : () => print())
+        onClick: () => print()
       },
     }}
 
     msgBox={{
       props: {
-        children: <p style={{color:"red", fontWeight: 'bold'}}>{status}</p>
+        children: <p style={{color:"red", fontWeight: 'bold'}}>{msg}</p>
       }
     }}
 
