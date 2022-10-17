@@ -149,55 +149,29 @@ function PlasmicPrint__RenderFunc(props: {
                   <React.Fragment>
                     <React.Fragment>
                       {
-                        "Instead of spending millions, hiring thousands of unuseful consultants, waste years of work, we invite any 'central bank' of this planet to use a standard ERC-20 on top of any L2. This is "
+                        "You can mint as many DUNE as you want. We're on Aurora Testnet. Just make sure you're "
                       }
                     </React.Fragment>
                     <span
                       className={"plasmic_default__all plasmic_default__span"}
-                      style={{
-                        fontWeight: 700,
-                        textDecorationLine: "underline"
-                      }}
+                      style={{ fontWeight: 700 }}
                     >
-                      {"for educational purposes only"}
+                      {"logged in with MetaMask"}
+                    </span>
+                    <React.Fragment>
+                      {" and connected to a wallet that "}
+                    </React.Fragment>
+                    <span
+                      className={"plasmic_default__all plasmic_default__span"}
+                      style={{ fontWeight: 700 }}
+                    >
+                      {"holds a bit of Aurora Testnet ETH"}
                     </span>
                     <React.Fragment>
                       {
-                        ": what you're issuing is a currency that circulates on a test network called "
+                        '.\n\n"First reported in 2020 and confirmed in 2021 the dune aurora phenomenon was discovered by Finnish citizen scientists. It consists of regularly-spaced, parallel stripes of brighter emission in the green diffuse aurora which give the impression of sand dunes. The phenomenon is believed to be caused by the modulation of atomic oxygen density by a large-scale atmospheric wave travelling horizontally in a waveguide through an inversion layer in the mesosphere in presence of electron precipitation."'
                       }
                     </React.Fragment>
-                    {
-                      <a
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.a,
-                          projectcss.__wab_text,
-                          projectcss.plasmic_default__inline,
-                          sty.link__iJtGp
-                        )}
-                        href={"https://goerli.net/" as const}
-                      >
-                        {"Goerli"}
-                      </a>
-                    }
-                    <React.Fragment>
-                      {". It is as secured as our good old euro. "}
-                    </React.Fragment>
-                    {
-                      <a
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.a,
-                          projectcss.__wab_text,
-                          projectcss.plasmic_default__inline,
-                          sty.link__lYuYz
-                        )}
-                        href={`/about`}
-                      >
-                        {"Learn more about the CBDC thing"}
-                      </a>
-                    }
-                    <React.Fragment>{"."}</React.Fragment>
                   </React.Fragment>
                 </div>
 

@@ -14,7 +14,7 @@
 }
 
 .plasmic_default_styles {
-  --mixin-Psb6Tb2Ao75S9_font-family: "Inter";
+  --mixin-Psb6Tb2Ao75S9_font-family: "Inter", sans-serif;
   --mixin-Psb6Tb2Ao75S9_font-size: 16px;
   --mixin-Psb6Tb2Ao75S9_font-weight: 400;
   --mixin-Psb6Tb2Ao75S9_font-style: normal;

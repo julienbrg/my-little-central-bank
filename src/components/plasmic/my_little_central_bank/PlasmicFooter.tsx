@@ -32,6 +32,8 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 
+import { useScreenVariants as useScreenVariantsqSgDnwx63IBib } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: QSgDnwx63iBIB/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic_my_little_central_bank.module.css"; // plasmic-import: b5LwbYjEqZs5FaGQRFULLt/projectcss
@@ -87,6 +89,10 @@ function PlasmicFooter__RenderFunc(props: {
     ...args,
     ...variants
   };
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsqSgDnwx63IBib()
+  });
 
   return (
     <div
@@ -148,7 +154,9 @@ function PlasmicFooter__RenderFunc(props: {
                           sty.span
                         )}
                       >
-                        {"EUR"}
+                        {hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "DUNE"
+                          : "EUR"}
                       </span>
                     }
                     <React.Fragment>{"  "}</React.Fragment>
@@ -168,7 +176,9 @@ function PlasmicFooter__RenderFunc(props: {
                         sty.link
                       )}
                       href={
-                        "https://github.com/julienbrg/my-little-central-bank" as const
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? ("https://github.com/julienbrg/my-little-central-bank/tree/dune" as const)
+                          : ("https://github.com/julienbrg/my-little-central-bank" as const)
                       }
                       target={"_blank" as const}
                     >
