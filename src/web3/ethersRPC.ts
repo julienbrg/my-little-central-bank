@@ -67,7 +67,7 @@ export default class EthereumRpc {
       //   await ethersProvider.getBalance(address) // Balance is in wei
       // );
 
-      const contract = new ethers.Contract("0x9d97e33C38396aea20E1ee8B9A2362632048C9a8", abi, signer)
+      const contract = new ethers.Contract("0x663604a615d2A3AC9de2A01dA7d5f3698259F0A8", abi, signer)
       const myEuroBalance = await contract.balanceOf(address)
       // console.log("myEuroBalance:", myEuroBalance)
 
@@ -162,7 +162,7 @@ export default class EthereumRpc {
       const signer = ethersProvider.getSigner();
       const address = await signer.getAddress();
 
-      const contract = new ethers.Contract("0x9d97e33C38396aea20E1ee8B9A2362632048C9a8", abi, signer)
+      const contract = new ethers.Contract("0x663604a615d2A3AC9de2A01dA7d5f3698259F0A8", abi, signer)
 
       const amountToMint = ethers.utils.parseEther(String(amount))
 
@@ -191,7 +191,7 @@ export default class EthereumRpc {
       const ethersProvider = new ethers.providers.Web3Provider(this.provider);
       const signer = ethersProvider.getSigner();
 
-      const contract = new ethers.Contract("0x9d97e33C38396aea20E1ee8B9A2362632048C9a8", abi, signer)
+      const contract = new ethers.Contract("0x663604a615d2A3AC9de2A01dA7d5f3698259F0A8", abi, signer)
 
       const supply = await contract.totalSupply();
       console.log("supply:", supply )

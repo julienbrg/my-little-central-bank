@@ -67,8 +67,8 @@ function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
     const receipt = await rpc.mint(amount);
     console.log("your tx: ", receipt)
 
-    await getEuroBalance()
-    setLoading(false)
+    await getEuroBalance();
+    setLoading(false);
 
   }
 
@@ -120,6 +120,12 @@ function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
     msgBox={{
       props: {
         children: <p style={{color:"red", fontWeight: 'bold'}}>{msg}</p>
+      }
+    }}
+
+    text={{
+      props: {
+        children: "This is for testing purposes only. You can mint as many EUR as you want. We're on Aurora Testnet. Just make sure you're logged in with MetaMask and connected to wallet that holds a bit of Aurora Testnet ETH. \n\n\n\"First reported in 2020 and confirmed in 2021 the dune aurora phenomenon was discovered by Finnish citizen scientists. It consists of regularly-spaced, parallel stripes of brighter emission in the green diffuse aurora which give the impression of sand dunes. The phenomenon is believed to be caused by the modulation of atomic oxygen density by a large-scale atmospheric wave travelling horizontally in a waveguide through an inversion layer in the mesosphere in presence of electron precipitation.\""
       }
     }}
 

@@ -46,12 +46,12 @@ function Header_(props: HeaderProps, ref: HTMLElementRefOf<"div">) {
           clientId: clientId,
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.EIP155,
-            chainId: "0x5",
+            chainId: "0x4e454153",
             rpcTarget: endpoint,
-            displayName: "Goerli Testnet",
-            blockExplorer: "https://goerli.etherscan.io",
+            displayName: "Aurora Testnet",
+            blockExplorer: "https://testnet.aurora.dev",
             ticker: "ETH",
-            tickerName: "Ethereum",
+            tickerName: "Aurora",
           },
         });
   
