@@ -156,7 +156,7 @@ function PlasmicFooter__RenderFunc(props: {
                       >
                         {hasVariant(globalVariants, "screen", "mobileOnly")
                           ? "DUNE"
-                          : "EUR"}
+                          : "DUNE"}
                       </span>
                     }
                     <React.Fragment>{"  "}</React.Fragment>
