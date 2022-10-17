@@ -23,6 +23,7 @@ function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
   const [amount, setAmount] = useState<any>(0)
   const [euroBalance, setEuroBalance] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(false)
+  const [status, setStatus] = useState<string>("")
 
   useEffect(() => {
     getEuroBalance();
@@ -90,13 +91,13 @@ function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
     print={{
       props: {
         children: (loading ? <img style = {{maxHeight:26}} alt = "loader" src={loader} /> : "Print"),
-        onClick: () => print()
+        onClick: (!provider ? () => setStatus("Please login first.") : () => print())
       },
     }}
 
     msgBox={{
       props: {
-        children: null
+        children: <p style={{color:"red", fontWeight: 'bold'}}>{status}</p>
       }
     }}
 
