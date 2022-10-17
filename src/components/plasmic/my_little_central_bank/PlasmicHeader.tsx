@@ -130,6 +130,7 @@ function PlasmicHeader__RenderFunc(props: {
                 sty.userAddressBox
               )}
               href={`/`}
+              target={"_blank" as const}
             >
               {"0x..."}
             </a>

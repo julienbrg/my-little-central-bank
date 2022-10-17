@@ -18,7 +18,7 @@ function Index() {
   const [totalSupply, setTotalSupply] = useState<number>(0);
 
   const [userShortenAddr, setShortenAddr] = useState<string>("")
-  // const [etherscanLink, setEtherscanLink] = useState("");
+  const [etherscanLink, setEtherscanLink] = useState("");
   // const [txHash, setTxHash] = useState("");
   // const [net, setNet] = useState("");
   // const [firstName, setFirstName] = useState("anon");
@@ -33,7 +33,7 @@ function Index() {
       bal, setBal,
       userShortenAddr, setShortenAddr,
       totalSupply, setTotalSupply,
-      // etherscanLink, setEtherscanLink,
+      etherscanLink, setEtherscanLink,
       // txHash, setTxHash,
       // net, setNet,
       // firstName, setFirstName,

@@ -10,7 +10,9 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 import { useGlobalContext } from '../web3/Web3Context';
 import RPC from "../web3/ethersRPC";
 
-export interface FooterProps extends DefaultFooterProps {}
+export interface FooterProps extends DefaultFooterProps {
+  // text?:string
+}
 
 function Footer_(props: FooterProps, ref: HTMLElementRefOf<"div">) {
 
@@ -36,7 +38,7 @@ function Footer_(props: FooterProps, ref: HTMLElementRefOf<"div">) {
 
   const getEuroTotalSupply = async () => {
     if (!provider) {
-      console.log("provider not initialized yet");
+      console.log(" [footer // getEuroTotalSupply] provider not initialized yet");
       return;
     }
     const rpc = new RPC(provider);
@@ -49,6 +51,7 @@ function Footer_(props: FooterProps, ref: HTMLElementRefOf<"div">) {
   return <PlasmicFooter root={{ ref }} {...props} 
 
     supplyBox={{
+        
       props: {
         children: totalSupply
       }

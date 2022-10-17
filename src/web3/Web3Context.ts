@@ -17,8 +17,8 @@ export type GlobalContent = {
     setShortenAddr:(c: string) => void
     totalSupply: number
     setTotalSupply:(c: number) => void
-    // etherscanLink: string
-    // setEtherscanLink:(c: string) => void
+    etherscanLink: string
+    setEtherscanLink:(c: string) => void
     // txHash: string
     // setTxHash:(c: string) => void
     // net: string
@@ -40,8 +40,8 @@ export const Web3Context = createContext<GlobalContent>({
     setBal: () => {},
     totalSupply: 0,
     setTotalSupply: () => {},
-    // etherscanLink: "",
-    // setEtherscanLink: () => {},
+    etherscanLink: "",
+    setEtherscanLink: () => {},
     userShortenAddr: "", 
     setShortenAddr: () => {},
     // txHash: "",

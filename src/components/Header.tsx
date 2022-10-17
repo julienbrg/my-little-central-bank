@@ -29,6 +29,7 @@ function Header_(props: HeaderProps, ref: HTMLElementRefOf<"div">) {
     setUserAddress,
     // setBal,
     userShortenAddr, setShortenAddr,
+    etherscanLink, setEtherscanLink
     // etherscanLink, setEtherscanLink,
     // txHash, setTxHash,
     // net, setNet,
@@ -133,6 +134,7 @@ function Header_(props: HeaderProps, ref: HTMLElementRefOf<"div">) {
     console.log("address:", address)
     setUserAddress(address)
     setShortenAddr(shortenAddress(address))
+    setEtherscanLink("https://goerli.etherscan.io/address/"+ address);
   
   };
   
@@ -171,10 +173,11 @@ function Header_(props: HeaderProps, ref: HTMLElementRefOf<"div">) {
 
     userAddressBox={{
       props: {
+        href: etherscanLink,
         children: (!provider ? "" : userShortenAddr)
       }
     }}
-  
+
   />;
 }
 

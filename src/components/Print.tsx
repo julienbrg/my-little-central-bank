@@ -16,7 +16,8 @@ export interface PrintProps extends DefaultPrintProps {}
 function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
 
   const { 
-    provider
+    provider,
+    setTotalSupply
   } = useGlobalContext()
 
   const [amount, setAmount] = useState<any>(0)
@@ -25,6 +26,7 @@ function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
 
   useEffect(() => {
     getEuroBalance();
+    getEuroTotalSupply();
   }, [provider, euroBalance]);
 
   const print = async () => {
@@ -58,6 +60,18 @@ function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
     setEuroBalance(Number(rounded))
     console.log("getEuroBalance done")
   };
+
+  const getEuroTotalSupply = async () => {
+    if (!provider) {
+      console.log("provider not initialized yet");
+      return;
+    }
+    const rpc = new RPC(provider);
+    const supply = await rpc.getEuroTotalSupply();
+    const rounded = Number(supply).toFixed(2)
+    setTotalSupply(Number(rounded))
+    console.log("getEuroTotalSupply done")
+  };
  
   return <PlasmicPrint root={{ ref }} {...props} 
   
@@ -82,7 +96,7 @@ function Print_(props: PrintProps, ref: HTMLElementRefOf<"div">) {
 
     msgBox={{
       props: {
-        children: ""
+        children: null
       }
     }}
 

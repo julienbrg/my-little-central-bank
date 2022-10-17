@@ -12,7 +12,7 @@
   max-width: 810px;
   margin-right: 0px;
   min-width: 0;
-  padding: 100px 8px 8px;
+  padding: 47px 8px 8px;
 }
 .freeBox__sCzZu {
   display: flex;
@@ -48,6 +48,12 @@
   min-width: 0;
   padding: 8px 0px 0px 8px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__dedr2 {
+    align-items: center;
+    justify-content: center;
+  }
+}
 .text {
   width: 100%;
   height: auto;
@@ -74,6 +80,11 @@
   max-width: 100%;
   min-width: 0;
   padding: 0px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__urzDv {
+    max-width: 10%;
+  }
 }
 .link {
   display: flex;
